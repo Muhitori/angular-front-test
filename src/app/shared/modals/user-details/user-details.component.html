@@ -1,2 +1,26 @@
-<div>
+<div class="modal-background"></div>
+<div class="modal container" [class.show]="!isHidden">
+  <h1>Info about User {{user?.id}}</h1>
+  <label for="name">Name:
+    {{user?.name}}
+  </label>
+  <label for="username">Username:
+    {{user?.username}}
+  </label>
+  <label for="email">Email:
+    {{user?.email}}
+  </label>
+  <label for="address">Address:
+    {{user?.address.city}} {{user?.address.street}} {{user?.address.suite}}
+  </label>
+  <label for="phone">Phone:
+    {{user?.phone}}
+  </label>
+  <label for="website">Website:
+    {{user?.website}}
+  </label>
+  <label for="Company">Company:
+    {{user?.company.name}}
+  </label>
+  <button class="btn btn-danger" (click)="close()">Close Window</button>
 </div>

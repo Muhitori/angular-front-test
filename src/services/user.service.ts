@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {User} from '../models/user';
-import { Observable, of } from 'rxjs';
-import {Post} from '../models/post';
+import { User } from '../models/user';
+import { Observable} from 'rxjs';
 import { API_URL } from '../app/constants';
 
 
@@ -15,7 +14,8 @@ export class UserService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
   getUser(id: number): Observable<User> {
     const params = {

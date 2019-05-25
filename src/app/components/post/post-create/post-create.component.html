@@ -1,11 +1,11 @@
-<div>
-  <label>Title:
+<div class="container main">
+  <label>Title:</label>
     <input [(ngModel)]="post.title"/>
-  </label>
-  <label>Body:
+  <label>Body:</label>
     <input [(ngModel)]="post.body"/>
-  </label>
-  <button (click)="addPost()">Create</button>
-  <button (click)="goBack()">Cancel</button>
+  <div class="btn-group d-flex" role="group">
+    <button class="btn btn-success" (click)="addPost()">Create</button>
+    <button class="btn btn-danger" (click)="goBack()">Cancel</button>
+  </div>
 </div>
 

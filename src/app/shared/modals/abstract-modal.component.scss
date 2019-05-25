@@ -9,13 +9,25 @@
 }
 
 .modal{
-  height: 400px;
-  width: 300px;
+  height: auto;
+  width: auto;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   z-index: 999;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #D8E6F3;
+  padding: 30px;
+}
+
+button{
+  margin: 5px 0 5px 0;
+}
+
+label{
+  display: block;
 }
 
 .show{

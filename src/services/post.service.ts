@@ -1,34 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import {Post} from '../models/post';
+import { Post } from '../models/post';
 import { Observable } from 'rxjs';
+import { API_URL } from '../app/constants';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-type': 'application/json; charset=UTF-8' })
+  headers: new HttpHeaders({'Content-type': 'application/json; charset=UTF-8'})
 };
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private postUrl = 'https://jsonplaceholder.typicode.com/posts';
+  private baseUrl = `${API_URL}/posts`;
+
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
   getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.postUrl);
+    return this.http.get<Post[]>(this.baseUrl);
   }
 
   getPost(id: number): Observable<Post> {
-    const url = `${this.postUrl}/${id}`;
-    return this.http.get<Post>(url);
+    const params = {
+      id: id.toString()
+    };
+    return this.http.get<Post>(this.baseUrl, {params});
   }
 
   addPost(post: Post): Observable<Post> {
-    return this.http.post<Post>(this.postUrl, post, httpOptions);
+    return this.http.post<Post>(this.baseUrl, post, httpOptions);
   }
-
-
 }

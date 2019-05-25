@@ -1,10 +1,15 @@
-<div>
-  <h1>{{post?.title}}</h1>
-  <p>{{post?.body}}</p>
-  <ul *ngFor="let comment of comments">
-    <li>{{comment.id}}
-      <h6>{{comment.name}}</h6>
-      {{comment.body}}</li>
-  </ul>
-  <button (click)="backToPosts()">Go Back</button>
+<div class="container main">
+  <h1>Info about post {{post?.id}}</h1>
+  <h3>Title: {{post?.title}}</h3>
+  <p>Content: {{post?.body}}</p>
+  <div class="comment" *ngFor="let comment of comments">
+      <h5>
+        <label for="id">Comment id:
+          {{comment.id}}
+        </label>
+      </h5>
+      <h6>Comment title: {{comment.name}}</h6>
+    <p>{{comment.body}}</p>
+  </div>
+  <button class="btn btn-primary" (click)="backToPosts()">Go Back</button>
 </div>

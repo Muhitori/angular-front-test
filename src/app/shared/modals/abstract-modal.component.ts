@@ -1,6 +1,6 @@
 import { ElementRef, OnInit, OnDestroy } from '@angular/core';
 import $ from 'jquery';
-import {ModalService} from './modal.service';
+import { ModalService } from './modal.service';
 
 
 export abstract class AbstractModal implements OnInit, OnDestroy {

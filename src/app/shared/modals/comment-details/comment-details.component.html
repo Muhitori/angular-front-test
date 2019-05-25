@@ -1,11 +1,15 @@
 <div class="modal-background"></div>
 <div class="modal" [class.show]="!isHidden">
-  <ul>
-    <li *ngFor="let comment of comments">
-      {{comment.id}}
-      <h6>{{comment.name}}</h6>
-      {{comment.body}}
-    </li>
-  </ul>
+  <h1>Comments to post {{post?.id}}</h1>
+  <div class="comment" *ngFor="let comment of comments">
+    <h3>
+      <label for="id">Comment id:
+        {{comment.id}}
+      </label>
+    </h3>
+    <h6>Title: {{comment.name}}</h6>
+    {{comment.body}}
+  </div>
+  <button class="btn btn-danger" (click)="close()">Close Window</button>
 </div>
 

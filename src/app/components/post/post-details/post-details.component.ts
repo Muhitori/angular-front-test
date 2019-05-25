@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from '../../../../models/post';
-import {PostService} from '../../../../services/post.service';
-import {ActivatedRoute} from '@angular/router';
-import {Location} from '@angular/common';
-import {CommentService} from '../../../../services/comment.service';
-import {Comment} from '../../../../models/comment';
+import { Post } from '../../../../models/post';
+import { PostService } from '../../../../services/post.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { CommentService } from '../../../../services/comment.service';
+import { Comment } from '../../../../models/comment';
 
 @Component({
   selector: 'app-post-details',
@@ -14,17 +14,21 @@ import {Comment} from '../../../../models/comment';
 export class PostDetailsComponent implements OnInit {
   public post: Post;
   public comments: Comment[];
+
   constructor(
     private postService: PostService,
     private commentService: CommentService,
     private route: ActivatedRoute,
     private location: Location
-  ) { }
+  ) {
+  }
 
   getPost(): void {
     const id = +this.route.snapshot.params.id;
     this.postService.getPost(id).subscribe(
-      post => this.post = post
+      response => {
+        this.post = response[0];
+      }
     );
   }
 
