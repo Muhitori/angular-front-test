@@ -1,13 +1,12 @@
-export class Post {
-  id: number;
-  title: string;
-  userId: number;
-  commentId: number;
+import {Model} from './model';
 
-  constructor(id: number, title: string, userId: number, commentId: number){
-    this.id = id;
-    this.title = title;
-    this.commentId = commentId;
-    this.userId = userId;
+export class Post extends Model {
+  constructor(
+    public id: number = null,
+    public title: string = null,
+    public body: string = null,
+    public userId: number = null,
+  ) {
+    super(id);
   }
 }

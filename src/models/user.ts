@@ -1,9 +1,11 @@
-export class User {
-  id: number;
-  name: string;
+import {Model} from './model';
 
-  constructor(id: number, name: string) {
-    this.id = id;
-    this.name = name;
+export class User extends Model {
+  constructor(
+    public id: number = null,
+    public title: string = null,
+    public body: string = null
+  ) {
+    super(id);
   }
 }

@@ -1,3 +1,11 @@
-<p>
-  post-create works!
-</p>
+<div>
+  <label>Title:
+    <input [(ngModel)]="post.title"/>
+  </label>
+  <label>Body:
+    <input [(ngModel)]="post.body"/>
+  </label>
+  <button (click)="addPost()">Create</button>
+  <button (click)="goBack()">Cancel</button>
+</div>
+

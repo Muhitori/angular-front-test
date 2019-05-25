@@ -1,8 +1,10 @@
-export class Comment {
-  id: number;
-  content: string;
-  constructor(id: number, content: string) {
-    this.id = id;
-    this.content = content;
+import {Model} from './model';
+
+export class Comment extends Model {
+  constructor(
+    public id: number = null,
+    public name: string = null,
+    public body: string = null) {
+    super(id);
   }
 }

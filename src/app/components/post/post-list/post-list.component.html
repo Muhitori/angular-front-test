@@ -1,11 +1,47 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+  <nav>
+    <a routerLink="/post/create">Create</a>
+  </nav>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Comments</th>
+      <th>Author</th>
+    </tr>
+    <tr *ngFor="let post of pagedItems">
+      <td>{{post.id}}</td>
+      <td>
+        <a routerLink="/post/{{post.id}}">{{post.title}}</a>
+      </td>
+      <td>
+        <a (click)="openModal(commentDetailsModalId, post)">Comments</a>
+      </td>
+      <td>
+        <a (click)="openModal(userDetailsModalId, post.userId)">Author</a>
+      </td>
+    </tr>
+  </table>
+
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+  </ul>
 </div>
-<nav>
-  <a routerLink="">Posts</a>
-  <br>
-  <a routerLink="/post/create">Create</a>
-</nav>
+
+<app-comment-details></app-comment-details>
+<app-user-details></app-user-details>
+

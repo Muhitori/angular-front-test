@@ -1,0 +1,11 @@
+<div class="modal-background"></div>
+<div class="modal" [class.show]="!isHidden">
+  <ul>
+    <li *ngFor="let comment of comments">
+      {{comment.id}}
+      <h6>{{comment.name}}</h6>
+      {{comment.body}}
+    </li>
+  </ul>
+</div>
+
