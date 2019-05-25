@@ -18,9 +18,7 @@ export class UserService {
   }
 
   getUser(id: number): Observable<User> {
-    const params = {
-      id: id.toString()
-    };
-    return this.http.get<User>(this.baseUrl, {params});
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<User>(url);
   }
 }

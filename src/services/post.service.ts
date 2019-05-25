@@ -25,10 +25,8 @@ export class PostService {
   }
 
   getPost(id: number): Observable<Post> {
-    const params = {
-      id: id.toString()
-    };
-    return this.http.get<Post>(this.baseUrl, {params});
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Post>(url);
   }
 
   addPost(post: Post): Observable<Post> {

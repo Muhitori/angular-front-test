@@ -36,8 +36,8 @@ export class UserDetailsComponent extends AbstractModal implements OnInit {
 
   getUser(userId: number): void {
     this.userService.getUser(userId).subscribe(
-      response => {
-        this.user = response[0];
+      user => {
+        this.user = user;
       }
     );
   }
