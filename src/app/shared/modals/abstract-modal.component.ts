@@ -51,6 +51,4 @@ export abstract class AbstractModal implements OnInit, OnDestroy {
     this.element.fadeOut();
     this.isHidden = true;
   }
-
-
 }

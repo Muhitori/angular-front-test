@@ -8,7 +8,6 @@ import { PostCreateComponent } from './post-create/post-create.component';
 
 import { PostService } from '../../../services/post.service';
 import { FormsModule } from '@angular/forms';
-import { PagerService } from './post-list/pager.service';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { SharedModule } from '../../shared/shared.module';
   ],
   providers: [
     PostService,
-    PagerService
   ]
 })
 export class PostModule {

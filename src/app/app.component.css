@@ -2,6 +2,10 @@ body{
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 }
 
+a{
+  cursor: pointer;
+}
+
 label{
   display: block;
 }

@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { UserDetailsComponent } from './modals/user-details/user-details.component';
 import { CommentDetailsComponent } from './modals/comment-details/comment-details.component';
 import { ModalService } from './modals/modal.service';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
   declarations: [
     UserDetailsComponent,
-    CommentDetailsComponent
+    CommentDetailsComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { ModalService } from './modals/modal.service';
   ],
   exports: [
     UserDetailsComponent,
-    CommentDetailsComponent
+    CommentDetailsComponent,
+    PaginationComponent
   ]
 })
 export class SharedModule {
